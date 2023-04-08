@@ -21,7 +21,7 @@ def main(args):
                                agent_settings=agent_config,
                                npc_agent_class=PurePursuitAgent,
                                start_bbox=[2530, 99, 4064, 2543, 120, 4076],
-                               competition_mode=True,
+                               competition_mode=False,
                                lap_count=1)
 
     try:

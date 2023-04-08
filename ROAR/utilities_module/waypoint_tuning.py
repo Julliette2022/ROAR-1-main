@@ -44,9 +44,10 @@ def checkpoint(checkpoints, car_coords):
     """Checks if the car has reached a checkpoint"""
     car_coords = (int(car_coords[1]), int(car_coords[0]))
     for i, checkpoint in enumerate(checkpoints):
-        i += 1
+        
         if abs(car_coords[0] - checkpoint[0]) < 7 and abs(car_coords[1] - checkpoint[1]) < 7:
             return i
+        i += 1
     return None
 
 def at_point(coords, car_coords, margin = 10):

@@ -50,7 +50,6 @@ class WaypointGeneratingAgent(Agent):
                  vehicle: Vehicle) -> VehicleControl:
         super(WaypointGeneratingAgent, self).run_step(sensors_data=sensors_data,
                                                      vehicle=vehicle)
-        
         # Showing minimap
         # Showing live minimap
         car_coords = [float(i) for i in self.vehicle.transform.record().split(",")]
@@ -58,7 +57,7 @@ class WaypointGeneratingAgent(Agent):
         self.throttle = self.vehicle.control.throttle
         self.car_coords = [float(i) for i in self.vehicle.transform.record().split(",")][0:3:2]
         self.map = show_map(self.map, self.car_coords, self.speed, self.throttle)
-        # show_lane(self.lane_map, self.car_coords, self.speed, self.throttle)
+        #show_lane(self.lane_map, self.car_coords, self.speed, self.throttle)
         self.transform_history.append(self.vehicle.transform)
 
         # Checking for checkpoint
