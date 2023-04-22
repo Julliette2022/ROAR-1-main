@@ -7,6 +7,7 @@ from ROAR.configurations.configuration import Configuration as AgentConfig
 import argparse
 from misc.utils import str2bool
 
+
 from ROAR.agent_module.special_agents.waypoint_generating_agent import WaypointGeneratingAgent
 
 def main(args):
