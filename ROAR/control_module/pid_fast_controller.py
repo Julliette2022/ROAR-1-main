@@ -108,7 +108,7 @@ class PIDFastController(Controller):
                 throttle = 1
                 brake = 1
             elif most_recent_checkpoint in [11]:
-                throttle *= 0.05
+                throttle *= 0.03
                 brake = 0.5
             # print("Hard steering")
         elif wide_error > 0.05 and current_speed > 95: # wide turn
@@ -127,15 +127,15 @@ class PIDFastController(Controller):
                 brake = 0.5
             # print("Wide turn")
         elif current_speed > self.max_speed:
-            throttle = 0.9
-            brake = 0
+            throttle = 0.7
+            brake = 0.1
         else:
             throttle = 1
             brake = 0
         
         if most_recent_checkpoint == 12.25:
-            throttle -= 0.3
-            brake += 0.2
+            throttle -= 0.5
+            brake += 0.5
 
         # DEBUGGING
         #print(round(self.delta_pitch, 2))
@@ -148,9 +148,18 @@ class PIDFastController(Controller):
         if gear == 0:
             gear += 1
         #if pitch > 3 and current_speed < 6: gear = 1
-
+        print(self.agent.vehicle.transform.location.x)
+        print(self.agent.vehicle.transform.location.y)
+        print(self.agent.vehicle.transform.location.z)
+        print(self.agent.vehicle.transform.location)
+        
+        if ((self.agent.vehicle.transform.location.x >= 1400) and (self.agent.vehicle.transform.location.x <= 1600)) and ((self.agent.vehicle.transform.location.z >= 4200) and (self.agent.vehicle.transform.location.z <= 4300)) :
+            brake = 1
+        
         return VehicleControl(throttle=throttle, steering=steering, brake=brake, manual_gear_shift=True, gear=gear)
 
+    
+        
     @staticmethod
     def find_k_values(vehicle: Vehicle, config: dict) -> np.array:
         current_speed = Vehicle.get_speed(vehicle=vehicle)

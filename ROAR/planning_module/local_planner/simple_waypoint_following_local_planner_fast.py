@@ -135,7 +135,7 @@ class SimpleWaypointFollowingLocalPlanner(LocalPlanner):
                 break
         current_speed = Vehicle.get_speed(self.agent.vehicle)
         target_waypoint = self.way_points_queue[0]
-        '''
+        
         if keyboard.is_pressed("space"):
             print(target_waypoint.record())
             #print(self.agent.vehicle.transform.location)
@@ -143,13 +143,13 @@ class SimpleWaypointFollowingLocalPlanner(LocalPlanner):
             pass
         if keyboard.is_pressed("l"):
             print(vehicle_transform.location)
-        '''
+        
         waypoint_lookahead = round(pow(current_speed, 2)*0.002 + 0.7*current_speed)
         far_waypoint = self.way_points_queue[min(waypoint_lookahead, len(self.way_points_queue) - 1)]
         close_waypoint = self.way_points_queue[min(120, waypoint_lookahead, len(self.way_points_queue) - 1)]
         
         control: VehicleControl = self.controller.run_in_series(next_waypoint=target_waypoint, close_waypoint=close_waypoint, most_recent_checkpoint=most_recent_checkpoint, far_waypoint=far_waypoint)
-        # self.logger.debug(f"\n"
+        #self.logger.debug(f"\n"
         #                   f"Curr Transform: {self.agent.vehicle.transform}\n"
         #                   f"Target Location: {target_waypoint.location}\n"
         #                   f"Control: {control} | Speed: {Vehicle.get_speed(self.agent.vehicle)}\n")

@@ -24,7 +24,7 @@ def main(args):
                                competition_mode=True,
                                lap_count=1)
 
-    try:
+    try: 
         my_vehicle = carla_runner.set_carla_world()
         print(get_run_time(carla_runner))
         agent = PIDFastAgent(vehicle=my_vehicle,
