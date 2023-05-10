@@ -18,7 +18,7 @@ def main(args):
     carla_config = CarlaConfig.parse_file(Path("./ROAR_Sim/configurations/configuration.json"))
 
     carla_runner = CarlaRunner(carla_settings=carla_config,
-                               agent_settings=agent_config,
+                               agent_settings=agent_config,   
                                npc_agent_class=PurePursuitAgent,
                                start_bbox=[2530, 99, 4064, 2543, 120, 4076],
                                competition_mode=True,

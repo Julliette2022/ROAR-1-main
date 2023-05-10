@@ -147,15 +147,124 @@ class PIDFastController(Controller):
         gear = math.ceil((current_speed - (2*pitch)) / gear_quotient)
         if gear == 0:
             gear += 1
-        #if pitch > 3 and current_speed < 6: gear = 1
+        if pitch > 3 and current_speed < 6: gear = 1
         print(self.agent.vehicle.transform.location.x)
-        print(self.agent.vehicle.transform.location.y)
+        #print(self.agent.vehicle.transform.location.y)
         print(self.agent.vehicle.transform.location.z)
         print(self.agent.vehicle.transform.location)
         
-        if ((self.agent.vehicle.transform.location.x >= 1400) and (self.agent.vehicle.transform.location.x <= 1600)) and ((self.agent.vehicle.transform.location.z >= 4200) and (self.agent.vehicle.transform.location.z <= 4300)) :
-            brake = 1
+        if ((self.agent.vehicle.transform.location.x >= 1300) and (self.agent.vehicle.transform.location.x <= 1400)) and ((self.agent.vehicle.transform.location.z >= 4000) and (self.agent.vehicle.transform.location.z <= 4400)) and ((self.agent.vehicle.transform.location.y >= 60) and (self.agent.vehicle.transform.location.y <= 80)) :
+            brake = 0.03
+            steering -= 0.01
+        if ((self.agent.vehicle.transform.location.x >= 1300) and (self.agent.vehicle.transform.location.x <= 1400)) and ((self.agent.vehicle.transform.location.z >= 4000) and (self.agent.vehicle.transform.location.z <= 4400)) and ((self.agent.vehicle.transform.location.y >= 60) and (self.agent.vehicle.transform.location.y <= 80)) :
+            brake = 0   
         
+        if ((self.agent.vehicle.transform.location.x >= 1300) and (self.agent.vehicle.transform.location.x <= 1380)) and ((self.agent.vehicle.transform.location.z >= 3500) and (self.agent.vehicle.transform.location.z <= 3700)) and ((self.agent.vehicle.transform.location.y >= 60) and (self.agent.vehicle.transform.location.y <= 80)) :
+            brake = 0.6
+            throttle = 1
+            #steering += 0.1
+            
+        if (self.agent.vehicle.transform.location.x >= 1300) and (self.agent.vehicle.transform.location.x <= 1350) and (self.agent.vehicle.transform.location.z >= 3590) and (self.agent.vehicle.transform.location.z <= 3700)  :
+            brake = 1
+            throttle = 0.5
+          
+        if (self.agent.vehicle.transform.location.x >= 3450) and (self.agent.vehicle.transform.location.x <= 3700) and (self.agent.vehicle.transform.location.z >= 3600) and (self.agent.vehicle.transform.location.z <= 3700) and (self.agent.vehicle.transform.location.y <= 190) and (self.agent.vehicle.transform.location.y <= 195) :
+            brake = 1
+            throttle = 0
+            steering = 0
+            
+        if (self.agent.vehicle.transform.location.x >= 3700) and (self.agent.vehicle.transform.location.x <= 3800) and (self.agent.vehicle.transform.location.z >= 3300) and (self.agent.vehicle.transform.location.z <= 3400) :
+            throttle = 0.5
+            
+        if (self.agent.vehicle.transform.location.x >= 3640) and (self.agent.vehicle.transform.location.x <= 3750) and (self.agent.vehicle.transform.location.z >= 2400) and (self.agent.vehicle.transform.location.z <= 2500) :
+            throttle = 0.7  
+        
+        if (self.agent.vehicle.transform.location.x >= 3100) and (self.agent.vehicle.transform.location.x <= 3190) and (self.agent.vehicle.transform.location.z >= 2500) and (self.agent.vehicle.transform.location.z <= 2600) :
+            #throttle = 1
+            
+            steering -= 0.2
+            
+        if (self.agent.vehicle.transform.location.x >= 3600) and (self.agent.vehicle.transform.location.x <= 3700) and (self.agent.vehicle.transform.location.z >= 2550) and (self.agent.vehicle.transform.location.z <= 2300) :
+            throttle = 1
+            
+        if (self.agent.vehicle.transform.location.x >= 3600) and (self.agent.vehicle.transform.location.x <= 3700) and (self.agent.vehicle.transform.location.z >= 2400) and (self.agent.vehicle.transform.location.z <= 2500) :
+            throttle = 1
+            
+        if (self.agent.vehicle.transform.location.x >= 3550) and (self.agent.vehicle.transform.location.x <= 3620) and (self.agent.vehicle.transform.location.z >= 2400) and (self.agent.vehicle.transform.location.z <= 2500) :
+            brake = 0.7
+            
+        if (self.agent.vehicle.transform.location.x >= 3630) and (self.agent.vehicle.transform.location.x <= 3700) and (self.agent.vehicle.transform.location.z >= 2400) and (self.agent.vehicle.transform.location.z <= 2500) :
+            throttle = 1
+        
+        if (self.agent.vehicle.transform.location.x >= 3650) and (self.agent.vehicle.transform.location.x <= 3720) and (self.agent.vehicle.transform.location.z >= 2400) and (self.agent.vehicle.transform.location.z <= 2500) :
+            brake = 0
+            throttle = 1
+            
+        if (self.agent.vehicle.transform.location.x >= 5200) and (self.agent.vehicle.transform.location.x <= 5400) and (self.agent.vehicle.transform.location.z >= 4000) and (self.agent.vehicle.transform.location.z <= 3800) :
+            throttle = 0.6
+            steering -= 0.4
+            
+            
+        if (self.agent.vehicle.transform.location.x >= 4930) and (self.agent.vehicle.transform.location.x <= 4990) and (self.agent.vehicle.transform.location.z >= 3800) and (self.agent.vehicle.transform.location.z <= 3950) :
+            throttle = 0.8
+            brake = 0.4
+            
+        if (self.agent.vehicle.transform.location.x >= 4940) and (self.agent.vehicle.transform.location.x <= 5000) and (self.agent.vehicle.transform.location.z >= 3850) and (self.agent.vehicle.transform.location.z <= 3940) :
+            throttle = 1
+        
+        if (self.agent.vehicle.transform.location.x >= 2450) and (self.agent.vehicle.transform.location.x <= 2550) and (self.agent.vehicle.transform.location.z >= 4200) and (self.agent.vehicle.transform.location.z <= 4300) :
+            throttle = 0.8
+            brake = 0.5
+            steering +=0.2
+            
+        if (self.agent.vehicle.transform.location.x >= 2540) and (self.agent.vehicle.transform.location.x <= 2600) and (self.agent.vehicle.transform.location.z >= 4240) and (self.agent.vehicle.transform.location.z <= 4300) :
+            brake = 1
+            steering += 0.25
+            
+        if (self.agent.vehicle.transform.location.x >= 2560) and (self.agent.vehicle.transform.location.x <= 2600) and (self.agent.vehicle.transform.location.z >= 4230) and (self.agent.vehicle.transform.location.z <= 4260) :
+            steering -= 0.3
+            
+        if (self.agent.vehicle.transform.location.x >= 2560) and (self.agent.vehicle.transform.location.x <= 2570) and (self.agent.vehicle.transform.location.z >= 4150) and (self.agent.vehicle.transform.location.z <= 4200) :
+            steering += 0.1
+            #brake = 0.4
+        
+        if (self.agent.vehicle.transform.location.x >= 2560) and (self.agent.vehicle.transform.location.x <= 2600) and (self.agent.vehicle.transform.location.z >= 4040) and (self.agent.vehicle.transform.location.z <= 4090) :
+            brake = 0.8
+        
+        if (self.agent.vehicle.transform.location.x >= 5390) and (self.agent.vehicle.transform.location.x <= 5450) and (self.agent.vehicle.transform.location.z >= 3700) and (self.agent.vehicle.transform.location.z <= 3760) :
+            throttle = 0.6
+        
+        if (self.agent.vehicle.transform.location.x >= 2550) and (self.agent.vehicle.transform.location.x <= 2600) and (self.agent.vehicle.transform.location.z >= 4100) and (self.agent.vehicle.transform.location.z <= 4200) :
+            
+            throttle = 0.8
+        
+        #if (self.agent.vehicle.transform.location.x >= 2510) and (self.agent.vehicle.transform.location.x <= 2580) and (self.agent.vehicle.transform.location.z >= 4160) and (self.agent.vehicle.transform.location.z <= 4220) :
+            #brake = 0.9
+            #throttle = 0
+            #steering -= -1
+        #-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        
+
+        if (self.agent.vehicle.transform.location.x >= 2570) and (self.agent.vehicle.transform.location.x <= 2590) and (self.agent.vehicle.transform.location.z >= 4250) and (self.agent.vehicle.transform.location.z <= 4360) :
+            brake = 1
+
+        if (self.agent.vehicle.transform.location.x >= 2570) and (self.agent.vehicle.transform.location.x <= 2580) and (self.agent.vehicle.transform.location.z >= 4230) and (self.agent.vehicle.transform.location.z <= 4340) :
+            steering += 0.2
+
+        # 点11 环形路口
+    
+        if (self.agent.vehicle.transform.location.x >= 5270) and (self.agent.vehicle.transform.location.x <= 5350) and (self.agent.vehicle.transform.location.z >= 3940) and (self.agent.vehicle.transform.location.z <= 3950) :
+            steering -= 0.2
+            brake = 0.7
+        # 点9 大坡起伏
+
+        if (self.agent.vehicle.transform.location.x >= 1970) and (self.agent.vehicle.transform.location.x <= 2155) and (self.agent.vehicle.transform.location.z >= 3415) and (self.agent.vehicle.transform.location.z <= 3440) :
+            brake = 1
+            throttle = 0.7
+        # 点2 弯道
+
+        
+
         return VehicleControl(throttle=throttle, steering=steering, brake=brake, manual_gear_shift=True, gear=gear)
 
     
