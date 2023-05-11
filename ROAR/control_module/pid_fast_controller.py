@@ -151,7 +151,7 @@ class PIDFastController(Controller):
         #print(self.agent.vehicle.transform.location.x)
         # print(self.agent.vehicle.transform.location.y)
         #print(self.agent.vehicle.transform.location.z)
-        print(self.agent.vehicle.transform.location)
+        #print(self.agent.vehicle.transform.location)
         
         if ((self.agent.vehicle.transform.location.x >= 1300) and (self.agent.vehicle.transform.location.x <= 1400)) and ((self.agent.vehicle.transform.location.z >= 4000) and (self.agent.vehicle.transform.location.z <= 4400)) and ((self.agent.vehicle.transform.location.y >= 60) and (self.agent.vehicle.transform.location.y <= 80)) :
             brake = 0.03
