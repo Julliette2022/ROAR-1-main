@@ -293,6 +293,10 @@ class PIDFastController(Controller):
             #steering += 0.1
             
         #11直道
+        
+        if (self.agent.vehicle.transform.location.x >= 1810) and (self.agent.vehicle.transform.location.x <= 1830) and (self.agent.vehicle.transform.location.z >= 3450) and (self.agent.vehicle.transform.location.z <= 3470) :
+            steering -= 0.01
+        # #1-2直道
         if (self.agent.vehicle.transform.location.x >= 5600) and (self.agent.vehicle.transform.location.x <= 5630) and (self.agent.vehicle.transform.location.z >= 4200) and (self.agent.vehicle.transform.location.z <= 4300) :
             steering -= 0.15
         #-------------------
