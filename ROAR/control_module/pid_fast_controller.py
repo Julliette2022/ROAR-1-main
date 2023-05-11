@@ -161,10 +161,10 @@ class PIDFastController(Controller):
             brake = 0   
         
         if ((self.agent.vehicle.transform.location.x >= 1290) and (self.agent.vehicle.transform.location.x <= 1330)) and ((self.agent.vehicle.transform.location.z >= 3500) and (self.agent.vehicle.transform.location.z <= 3700)) and ((self.agent.vehicle.transform.location.y >= 60) and (self.agent.vehicle.transform.location.y <= 80)) :
-            brake = 0.6
+            brake = 0.55
             throttle = 1
         
-        if ((self.agent.vehicle.transform.location.x >= 1330) and (self.agent.vehicle.transform.location.x <= 1340)) and ((self.agent.vehicle.transform.location.z >= 3500) and (self.agent.vehicle.transform.location.z <= 3700)) and ((self.agent.vehicle.transform.location.y >= 60) and (self.agent.vehicle.transform.location.y <= 80)) :
+        if (self.agent.vehicle.transform.location.x >= 1315) and (self.agent.vehicle.transform.location.x <= 1320) and (self.agent.vehicle.transform.location.z >= 3550) and (self.agent.vehicle.transform.location.z <= 3580) :
             steering -= 0.15
             
         if (self.agent.vehicle.transform.location.x >= 1300) and (self.agent.vehicle.transform.location.x <= 1350) and (self.agent.vehicle.transform.location.z >= 3590) and (self.agent.vehicle.transform.location.z <= 3700)  :
@@ -238,8 +238,10 @@ class PIDFastController(Controller):
             throttle = 0.6
         
         if (self.agent.vehicle.transform.location.x >= 2550) and (self.agent.vehicle.transform.location.x <= 2600) and (self.agent.vehicle.transform.location.z >= 4100) and (self.agent.vehicle.transform.location.z <= 4200) :
-            throttle = 0.9
+            throttle = 0.95
         
+        if (self.agent.vehicle.transform.location.x >= 3685) and (self.agent.vehicle.transform.location.x <= 3700) and (self.agent.vehicle.transform.location.z >= 3360) and (self.agent.vehicle.transform.location.z <= 3370) :
+            throttle = 0.8
         
         #-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
         
